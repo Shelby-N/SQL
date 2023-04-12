@@ -1,0 +1,44 @@
+CREATE TABLE artist ( id INTEGER,name TEXT, hometown TEXT);
+INSERT INTO artist VALUES (1, "prince","minneaplois");
+INSERT INTO artist VALUES (2, "madonna", "bay city");
+INSERT INTO artist VALUES (3, "beyonce", "houston");
+INSERT INTO artist VALUES (4, "justin timberlake", "memphis");
+SELECT * FROM artist;
+CREATE TABLE collaborations (id INTEGER, artist_1 TEXT, artist_2 TEXT,title TEXT);
+INSERT INTO collaborations VALUES (1, "prince", "madonna", "love song");
+INSERT INTO collaborations VALUES (2, "justin timberlake","beyonce","until the end of time");
+INSERT INTO collaborations VALUES (3, "justin timberlake","madonna","4 minutes");
+INSERT INTO collaborations VALUES (4, "madonna", "kanye west","beat goes on");
+INSERT INTO collaborations VALUES (5, "beyonce", "kanye west", "ego");
+INSERT INTO collaborations VALUES (6, "beyonce", "lady gaga","telephone");
+SELECT* FROM collaborations;
+CREATE TABLE written (id INTEGER, writer TEXT, title TEXT);
+INSERT INTO written VALUES (1, "prince","love song");
+INSERT INTO written VALUES (2, "justin timberlake", "until the end of time");
+INSERT INTO written VALUES (3, "justin timberlake", "4 minutes");
+INSERT INTO written VALUES (4, "beyonce", "telephone");
+SELECT* FROM written;
+CREATE TABLE featured (id INTEGER, name TEXT);
+INSERT INTO featured VALUES (1,"beyonce");
+INSERT INTO featured VALUES (2, "madonna");
+INSERT INTO featured VALUES (3,"lady gaga");
+INSERT INTO featured VALUES (4, "kanye west");
+SELECT* FROM featured;
+SELECT*
+FROM collaborations
+LEFT OUTER JOIN written
+ON collaborations.artist_1=written.writer;
+SELECT collaborations.artist_1, collaborations.artist_2, collaborations.title,written.writer
+FROM collaborations
+LEFT OUTER JOIN written
+ON collaborations.artist_1=written.writer;
+SELECT collaborations.artist_1, collaborations.artist_2, collaborations.title, featured.name
+FROM collaborations
+LEFT OUTER JOIN featured
+ON collaborations.artist_2=featured.name;
+SELECT collaborations.artist_1, collaborations.artist_2, collaborations.title,written.writer, featured.name
+FROM collaborations
+LEFT OUTER JOIN written
+ON collaborations.artist_1=written.writer
+LEFT OUTER JOIN featured
+ON collaborations.artist_2=featured.name

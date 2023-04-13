@@ -1,4 +1,3 @@
--- Example query (PostgreSQL)
 SELECT* 
 FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info" LIMIT 5;
 

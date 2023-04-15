@@ -1,0 +1,45 @@
+/* What does the app's SQL look like? */
+CREATE TABLE social_media
+(id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+content TEXT);
+INSERT INTO social_media (name,content) VALUES
+("Jane Smith", "Happy Birthday to my Best Friend Sarah!!!");
+INSERT INTO social_media (name, content) VALUES
+("Sarah Jones", "Thanks Jane!");
+INSERT INTO social_media (name, content) VALUES
+("John Williams", "Great night with friends");
+INSERT INTO social_media (name, content) VALUES
+("Andrew Rose", "Big news to come....");
+SELECT* FROM social_media;
+
+UPDATE social_media SET name="Jane Rose" WHERE id=1;
+SELECT* FROM social_media;
+
+INSERT INTO social_media (name,content) VALUES
+("Andrew Rose","Greatest night of my life!!!!");
+INSERT INTO social_media (name, content) VALUES
+("Sarah Jones", "It was an honor to see my 2 best friends getting married tonight!");
+SELECT* FROM social_media;
+
+ALTER TABLE social_media ADD emotion TEXT default "unkown";
+SELECT* FROM social_media;
+
+INSERT INTO social_media (name,content,emotion) VALUES
+("John Williams", "I can't believe I just watched to the love of my life get married tonight","heart broken");
+ SELECT* FROM social_media;
+ INSERT INTO social_media (name, content, emotion) VALUES
+ ("Sarah Jones", "Why would you say that John???", "confused");
+ INSERT INTO social_media (name,content,emotion) VALUES
+ ("Jane Rose", "John, this is not the place for this", "angry");
+ INSERT INTO social_media (name, content,emotion) VALUES
+ ("Sarah Jones", "John, you guys dated IN MIDDLE SCH0OL!!! Get over it!","shocked");
+ SELECT* FROM social_media;
+ 
+ SELECT content FROM social_media WHERE id=7;
+ DELETE  FROM social_media WHERE id=7;
+ SELECT* FROM social_media;
+ 
+ INSERT INTO social_media (name,content,emotion) VALUES
+ ("Andrew Rose", "Jane told me about your comment John, deleting it doesn't make it go away. I thought we were friends.","mad and hurt");
+ SELECT* FROM social_media;

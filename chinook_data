@@ -1,0 +1,91 @@
+*/ what is the most popular song in 2009*/
+
+SELECT name,COUNT(name),invoiceid, invoicedate
+FROM chinook.tracks
+JOIN chinook.invoice_items
+ON tracks.trackid=invoice_items.TrackId
+JOIN chinook.invoices
+ON invoice_items.InvoiceId=invoices.InvoiceId
+WHERE invoicedate LIKE '2009%'
+GROUP BY name
+ORDER BY COUNT(name) DESC
+LIMIT 1;
+
+*/what was the most popular song in 2010*/
+
+SELECT name,COUNT(name),invoiceid, invoicedate
+FROM chinook.tracks
+JOIN chinook.invoice_items
+ON tracks.trackid=invoice_items.TrackId
+JOIN chinook.invoices
+ON invoice_items.InvoiceId=invoices.InvoiceId
+WHERE invoicedate LIKE '2010%'
+GROUP BY name
+ORDER BY COUNT(name) DESC
+LIMIT 1;
+
+*/what was the most popular song in 2011*/
+
+SELECT name,COUNT(name),invoiceid, invoicedate
+FROM chinook.tracks
+JOIN chinook.invoice_items
+ON tracks.trackid=invoice_items.TrackId
+JOIN chinook.invoices
+ON invoice_items.InvoiceId=invoices.InvoiceId
+WHERE invoicedate LIKE '2011%'
+GROUP BY name
+ORDER BY COUNT(name) DESC
+LIMIT 1;
+
+*/what was the most popular song in 2012*/
+
+SELECT name,COUNT(name),invoiceid, invoicedate
+FROM chinook.tracks
+JOIN chinook.invoice_items
+ON tracks.trackid=invoice_items.TrackId
+JOIN chinook.invoices
+ON invoice_items.InvoiceId=invoices.InvoiceId
+WHERE invoicedate LIKE '2012%'
+GROUP BY name
+ORDER BY COUNT(name) DESC
+LIMIT 1;
+
+*/what was the most popular song in 2013*/
+
+SELECT name,COUNT(name),invoiceid, invoicedate
+FROM chinook.tracks
+JOIN chinook.invoice_items
+ON tracks.trackid=invoice_items.TrackId
+JOIN chinook.invoices
+ON invoice_items.InvoiceId=invoices.InvoiceId
+WHERE invoicedate LIKE '2013%'
+GROUP BY name
+ORDER BY count(name) DESC
+LIMIT 1
+
+
+*/what are the names that match the 'SupportRepId', and how many customers did they assist*/
+
+SELECT COUNT('SupportRepId'), SupportRepId,Employees.FirstName, Employees.LastName
+FROM chinook.employees
+JOIN chinook.customers
+ON employees.EmployeeId=customers.SupportRepId
+GROUP BY SupportRepId
+ORDER BY COUNT('SupportRepId') DESC;
+
+*/what are the names of all north american customers*/
+
+SELECT FirstName, LastName, Country
+FROM chinook.customers
+WHERE Country= 'USA'
+OR Country= 'Canada'
+ORDER BY Country;
+
+
+*/how much did each country spend in 2009*/
+
+SELECT SUM(Total),BillingCountry
+FROM chinook.invoices
+Where InvoiceDate LIKE '2009%'
+GROUP BY BillingCountry
+ORDER BY SUM(Total) DESC;
